@@ -48,7 +48,8 @@ const ventaSchema = new Schema ({
       _id : {type:String},
       disponible:{type:Number},
       nombreProducto:{type:String},
-      precioUnitario:{type:Number}
+      precioUnitario:{type:Number},
+      precioTotal:{type:Number},
     }
   ],
  tipoPedido: String,

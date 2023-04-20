@@ -268,7 +268,8 @@ export const newVenta = async (req,res) =>{
                     _id: p._id,
                     disponible: p.disponible,
                     nombreProducto: p.nombreProducto,
-                    precioUnitario: p.precioUnitario
+                    precioUnitario: p.precioUnitario,
+                    precioTotal:p.precioTotal
                 })),
                 tipoPedido : ventasData.tipoPedido,
                 total : ventasData.total
@@ -298,7 +299,8 @@ export const newVenta = async (req,res) =>{
                         _id: p._id,
                         disponible: p.disponible,
                         nombreProducto: p.nombreProducto,
-                        precioUnitario: p.precioUnitario
+                        precioUnitario: p.precioUnitario,
+                        precioTotal : p.precioTotal
                     }))
                     doc.origen = ventasData.origen
                     doc.total = ventasData.total

@@ -259,6 +259,7 @@ export const newVenta = async (req,res) =>{
                 indicativo : ventasData.indicativo,
                 celular : ventasData.celular,
                 direccion : ventasData.direccion,
+                correo: ventasData.correo,
                 idDepartamento: ventasData.idDepartamento,
                 departamento: ventasData.departamento,
                 ciudad: ventasData.ciudad,
@@ -294,6 +295,7 @@ export const newVenta = async (req,res) =>{
                     doc.indicativo = ventasData.indicativo
                     doc.celular = ventasData.celular
                     doc.direccion = ventasData.direccion
+                    doc.correo = ventasData.correo
                     doc.formapago = ventasData.formapago
                     doc.producto= ventasData.producto.map(p => ({
                         _id: p._id,
@@ -387,11 +389,11 @@ export const editGuiaEnvio = async(req,res) => {
     try {
         const {id} = req.params
 
-        const guia = await guiaEnvio.findOne({_id:id}).then()
+        const guia = await guiaEnvio.findOne({idventa:id}).then()
 
         res.json(guia)
     }catch (error) {
-        res.json(erorr)
+        res.json(null)
     }
 }
 
@@ -419,6 +421,12 @@ export const allVenta = async (req,res) => {
     const vent = await venta.find()
 
     res.json(vent)
+}
+
+export const allGuiaEnvio = async (req,res) => {
+    const guia = await guiaEnvio.find()
+
+    res.json(guia)
 }
 
 export const eliminar = async(req,res) => {

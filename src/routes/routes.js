@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { registerUsuario,login,usuarios,newInventario,editInvetario,allInventario, newVenta, editVenta, allVenta, actualizarCantidad, eliminar, sesion, buscarCliente, editGuiaEnvio, newGuiaEnvio} from "../controllers/controller.js";
+import { registerUsuario,login,usuarios,newInventario,editInvetario,allInventario, newVenta, editVenta, allVenta, actualizarCantidad, eliminar, sesion, buscarCliente, editGuiaEnvio, newGuiaEnvio, allGuiaEnvio} from "../controllers/controller.js";
 
 const router = Router()
 
@@ -41,5 +41,7 @@ router.get('/cliente/:id',buscarCliente)
 router.get('/guiaEnvio/:id',editGuiaEnvio)
 
 router.post('/newGuia',newGuiaEnvio)
+
+router.get('/guiaEnvio',allGuiaEnvio)
 
 export default router;

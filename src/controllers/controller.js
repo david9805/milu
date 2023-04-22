@@ -297,6 +297,8 @@ export const newVenta = async (req,res) =>{
                     doc.direccion = ventasData.direccion
                     doc.correo = ventasData.correo
                     doc.formapago = ventasData.formapago
+                    doc.idDepartamento = ventasData.idDepartamento
+                    doc.ciudad = ventasData.ciudad
                     doc.producto= ventasData.producto.map(p => ({
                         _id: p._id,
                         disponible: p.disponible,
@@ -430,7 +432,7 @@ export const allGuiaEnvio = async (req,res) => {
 }
 
 export const eliminar = async(req,res) => {
-   venta.deleteMany({})   
+   guiaEnvio.deleteMany({})   
   .then(() => {
     console.log('Todos los documentos fueron eliminados de la colección miColeccion');
   })
@@ -439,13 +441,13 @@ export const eliminar = async(req,res) => {
   });
 
 
-  inventario.deleteMany({})   
+  /*inventario.deleteMany({})   
   .then(() => {
     console.log('Todos los documentos fueron eliminados de la colección miColeccion');
   })
   .catch(error => {
     console.error('Error al eliminar documentos de la colección miColeccion:', error);
-  });
+  });*/
 
 
   res.json('todo elimnado');
